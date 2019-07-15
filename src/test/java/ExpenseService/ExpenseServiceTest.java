@@ -64,15 +64,19 @@ class ExpenseServiceTest {
         // given
         Project project = new Project(ProjectType.UNEXPECTED_PROJECT_TYPE, "Project N");
         // when
-        try {
-            ExpenseType expenseCodeByProjectTypeAndName = ExpenseService.getExpenseCodeByProjectTypeAndName(project);
-
-        } catch (UnexpectedProjectTypeException e) {
-            e.printStackTrace();
-            // then
-            Assertions.assertEquals(e.getClass(), UnexpectedProjectTypeException.class);
-        }
-
+//        try {
+//            ExpenseType expenseCodeByProjectTypeAndName = ExpenseService.getExpenseCodeByProjectTypeAndName(project);
+//
+//        } catch (UnexpectedProjectTypeException e) {
+//            e.printStackTrace();
+//            // then
+//            Assertions.assertEquals(e.getClass(), UnexpectedProjectTypeException.class);
+//        }
+        //when
+        //then
+         Assertions.assertThrows(UnexpectedProjectTypeException.class,()->{
+             ExpenseService.getExpenseCodeByProjectTypeAndName(project);
+         });
 
 
 
