@@ -62,7 +62,19 @@ class ExpenseServiceTest {
     @Test
     void should_throw_unexpected_project_exception_if_project_is_invalid() {
         // given
+        Project project = new Project(ProjectType.UNEXPECTED_PROJECT_TYPE, "Project N");
         // when
-        // then
+        try {
+            ExpenseType expenseCodeByProjectTypeAndName = ExpenseService.getExpenseCodeByProjectTypeAndName(project);
+
+        } catch (UnexpectedProjectTypeException e) {
+            e.printStackTrace();
+            // then
+            Assertions.assertEquals(e.getClass(), UnexpectedProjectTypeException.class);
+        }
+
+
+
+
     }
 }
